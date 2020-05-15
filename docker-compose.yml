@@ -1,0 +1,27 @@
+version: '3'
+services:
+  quakejs:
+    image: tentaculo/quakejs-server
+    depends_on:
+      - content-server
+    volumes:
+      - base:/quakejs/base
+    ports:
+      - 27960:27960
+    network_mode: "host"
+    entrypoint: node build/ioq3ded.js +set fs_game baseq3 +set dedicated 2 +set net_port 27960 +set fs_cdn <public_ip>:9000 +exec server.cfg
+    restart: always
+
+  content-server:
+    image: quakejs/content
+    build: docker/nginx
+    network_mode: "host"
+    volumes:
+      - assets:/assets:Z
+    ports:
+      - 9000:9000
+    restart: always
+
+volumes:
+  base:
+  assets:
