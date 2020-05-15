@@ -12,8 +12,10 @@ You can run multiple servers on single IP address by changing `net_port` paramet
 To do so just copy `quakejs` service block with another name, adjust the ports section and `net_port` parameter.
 Finally don't forget to create another server.cfg and point to it in the service block.
 
+Here is example running CTF server on port 27950 and reading configuration from server_cft_1.cfg:
 ```
 services:
+...
   quakejs_ctf_1:
     image: tentaculo/quakejs-server
     depends_on:
