@@ -23,6 +23,6 @@ services:
     ports:
       - 27950:27950
     network_mode: "host"
-    entrypoint: node build/ioq3ded.js +set fs_game baseq3 +set dedicated 2 +set net_port 27950 +set fs_cdn <public_ip>:9000 +exec server.cfg
+    entrypoint: node build/ioq3ded.js +set fs_game baseq3 +set dedicated 2 +set net_port 27950 +set fs_cdn <public_ip>:9000 +exec server_cft_1.cfg
     restart: always
 ```
